@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { interval, Observable } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-async-test',
@@ -17,7 +18,7 @@ export class AsyncTestComponent implements OnInit {
     }, 2000);
   });
 
-  timeAsObservable = new Observable<String>((observer) => {
+  timeAsObservable$ = new Observable<String>((observer) => {
     let intervalRef = window.setInterval(() => {
       this.isObservableStarted = true;
       observer.next(new Date().toUTCString());
@@ -27,6 +28,11 @@ export class AsyncTestComponent implements OnInit {
       observer.complete();
     }, 5000);
   });
+
+  numbers$ = interval(1000).pipe(
+    take(7),
+    tap((val) => console.log(val))
+  );
 
   constructor() {}
 

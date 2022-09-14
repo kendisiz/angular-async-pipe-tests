@@ -5,5 +5,7 @@
 </p>
 <p>
   Observer: {{ isObservableStarted ? '' : 'Waiting...' }}
-  {{ timeAsObservable | async }}
+  {{ timeAsObservable$ | async }}
 </p>
+
+<p>Numbers stream: {{ numbers$ | async }}</p>
