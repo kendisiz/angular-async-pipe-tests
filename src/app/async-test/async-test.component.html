@@ -1,0 +1,6 @@
+<p>Time: {{ time }}</p>
+<p>
+  Promise: {{ isPromiseResolved ? '' : 'Waiting...' }}
+  {{ timeAsPromise | async }}
+</p>
+<p>Observer: {{ timeAsObservable | async }}</p>
