@@ -3,4 +3,7 @@
   Promise: {{ isPromiseResolved ? '' : 'Waiting...' }}
   {{ timeAsPromise | async }}
 </p>
-<p>Observer: {{ timeAsObservable | async }}</p>
+<p>
+  Observer: {{ isObservableStarted ? '' : 'Waiting...' }}
+  {{ timeAsObservable | async }}
+</p>
